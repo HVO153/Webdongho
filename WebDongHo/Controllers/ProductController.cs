@@ -44,7 +44,7 @@ namespace WebDongHo.Controllers
             .Where(cp => cp.IdCat == id && cp.Link == slug).FirstOrDefaultAsync();
             if (cateProds == null)
             {
-                var errorViewModel = new ViewModels.ErrorViewModel
+                var errorViewModel = new ErrorViewModel
                 {
                     RequestId = "CateProd Error",
                 };
@@ -72,7 +72,7 @@ namespace WebDongHo.Controllers
             id).ToListAsync();
             if (prods == null)
             {
-                var errorViewModel = new ViewModels.ErrorViewModel
+                var errorViewModel = new ErrorViewModel
                 {
                     RequestId = "Product Error",
                 };

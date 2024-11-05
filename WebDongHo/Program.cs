@@ -16,8 +16,10 @@ AddCookie(options =>
     options.LoginPath = "/User/Login";
 });
 
+builder.Services.AddSession();
+
 var connectionString =
-builder.Configuration.GetConnectionString("WebsiteBanHangConnection");
+builder.Configuration.GetConnectionString("WebsiteBanAoConnection");
 builder.Services.AddDbContext<WebsiteBanAoContext>(options =>
 options.UseSqlServer(connectionString));
 
@@ -34,6 +36,7 @@ app.UseRouting();
 app.UseAuthentication();
 
 app.UseAuthorization();
+app.UseSession();
 
 app.UseEndpoints(endpoints =>
 {
@@ -72,6 +75,16 @@ app.UseEndpoints(endpoints =>
     name: "dang-xuat",
     pattern: "dang-xuat",
     defaults: new { controller = "User", action = "Logout" });
+
+    endpoints.MapControllerRoute(
+    name: "gio-hang",
+    pattern: "gio-hang",
+    defaults: new { controller = "Cart", action = "Index" });
+
+    endpoints.MapControllerRoute(
+    name: "them-gio-hang",
+    pattern: "them-gio-hang",
+    defaults: new { controller = "Cart", action = "AddItem" });
 
     endpoints.MapControllerRoute(
     name: "chinh-sua",
