@@ -1,0 +1,22 @@
+﻿@model WebDongHo.ViewModels.BlogViewModel
+
+@{
+    ViewData["Title"] = "Bài viết";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+@foreach (var blog in Model.Blogs)
+{
+    <div class="panel panel-primary">
+        <div class="panel-heading panel-heading-prod">
+            <i class="fa fa-paper-plane"></i>
+            @blog.Title
+        </div>
+        <div class="panel-body" style="text-align:justify">
+            @Html.Raw(blog.Description)
+        </div>
+    </div>
+}
+

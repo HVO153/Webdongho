@@ -1,0 +1,81 @@
+﻿@model WebDongHo.ViewModels.UserViewModel
+<div class="panel panel-primary">
+    <div class="panel-heading panel-heading-prod"><i class="fa fa-spinner faspin"></i> Chỉnh sửa thông tin người dùng</div>
+    <div class="panel-body">
+        @if (!string.IsNullOrEmpty(ViewBag.ErrorMessage))
+        {
+            <div class="alert alert-danger" role="alert">
+                @ViewBag.ErrorMessage
+            </div>
+        }
+        <form class="form form-horizontal" asp-action="EditInfo" asp-controller="User" method="POST">
+            <div class="form-group">
+                <label asp-for="Register.Username" class="col-md-3 control-label"></label>
+                <div class="col-md-9">
+                    <input class="form-control" asp-for="Register.Username" readonly />
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Register.Name" class="col-md-3 control-label"></label>
+                <div class="col-md-9">
+                    <input class="form-control" asp-for="Register.Name" placeholder="Họ và tên" required />
+                    <span asp-validation-for="Register.Name" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Register.Address" class="col-md-3 control-label"></label>
+                <div class="col-md-9">
+                    <input class="form-control" asp-for="Register.Address" placeholder="Địa chỉ" required />
+                    <span asp-validation-for="Register.Address" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Register.Email" class="col-md-3 control-label"></label>
+                <div class="col-md-9">
+                    <input class="form-control" asp-for="Register.Email" placeholder="Địa chỉ email" required />
+                    <span asp-validation-for="Register.Email" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Register.Phone" class="col-md-3 control-label"></label>
+                <div class="col-md-9">
+                    <input class="form-control" asp-for="Register.Phone" placeholder="Số điện thoại" required />
+                    <span asp-validation-for="Register.Phone" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Register.Password" class="col-md-3 control-label"></label>
+                <div class="col-md-9">
+                    <input type="password" class="form-control" asp-for="Register.Password" placeholder="Mật khẩu mới" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mật khẩu phải có ít nhất 8 ký tự, bao gồm ít nhất một chữ số, một chữ thường và một chữ hoa." />
+                    <span asp-validation-for="Register.Password" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Nhập lại mật khẩu mới:</label>
+                <div class="col-md-9">
+                    <input type="password" class="form-control" placeholder="Nhập lại mật khẩu mới" required pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Mật khẩu phải có ít nhất 8 ký tự, bao gồm ít nhất một chữ số, một chữ thường và một chữ hoa." oninput="checkPasswordMatch(this);" />
+                    <div id="passwordMatchMessage"></div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-3 col-md-9">
+                    <button type="submit" class="btn btn-danger">Cập nhật thông tin</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section scripts {
+    <script>
+        function checkPasswordMatch(input) {
+            var passwordInput = document.getElementById('password');
+            var confirmPasswordInput = document.getElementById('confirmPassword'); // Thêm dòng này để lấy đúng trường nhập lại mật khẩu
+            if (passwordInput.value !== confirmPasswordInput.value) {
+                confirmPasswordInput.setCustomValidity('Mật khẩu không khớp');
+            } else {
+                confirmPasswordInput.setCustomValidity('');
+            }
+        }
+    </script>
+}
