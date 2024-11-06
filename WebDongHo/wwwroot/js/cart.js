@@ -9,36 +9,59 @@
         $('#btnPayment').off('click').on('click', function () {
             window.location.href = "/thanh-toan";
         });
+
+
+
+
+
+
+
+
+
         $('#btnUpdate').off('click').on('click', function () {
             var listProduct = $('.txtQuantity');
             var cartList = [];
-
             $.each(listProduct, function (i, item) {
-                var quantity = $(item).val() || 0; // Nếu trống thì gán mặc định là 0
-                cartList.push({
-                    Quantity: parseInt(quantity), // Chuyển đổi giá trị sang số nguyên
-                    Product: {
-                        IdPro: $(item).data('id')
-                    }
-                });
+                var quantity = parseInt($(item).val());
+                if (!isNaN(quantity) && quantity > 0) {
+                    cartList.push({
+                        Quantity: quantity,
+                        Product: { IdPro: $(item).data('id') }
+                    });
+                }
             });
+
+            console.log("Sending cartModel:", JSON.stringify(cartList)); // Kiểm tra dữ liệu trước khi gửi
 
             $.ajax({
                 url: '/Cart/Update',
-                contentType: 'application/json',
-                data: JSON.stringify(cartList),
+                data: { cartModel: JSON.stringify(cartList) },
                 dataType: 'json',
                 type: 'POST',
                 success: function (res) {
+                    console.log("Server response:", res); // Kiểm tra phản hồi từ server
                     if (res.status === true) {
                         window.location.href = "/gio-hang";
+                    } else {
+                        alert("Update failed: " + (res.message || "Unknown error"));
                     }
                 },
                 error: function (xhr, status, error) {
-                    console.error("AJAX Error: ", error);
+                    console.log("AJAX Error:", error); // Kiểm tra nếu có lỗi từ AJAX
                 }
             });
         });
+
+
+
+
+
+
+
+
+
+
+
 
         $('#btnDeleteAll').off('click').on('click', function () {
             $.ajax({
