@@ -77,9 +77,9 @@ app.UseEndpoints(endpoints =>
     defaults: new { controller = "User", action = "Logout" });
 
     endpoints.MapControllerRoute(
-    name: "gio-hang",
-    pattern: "gio-hang",
-    defaults: new { controller = "Cart", action = "Index" });
+   name: "gio-hang",
+   pattern: "gio-hang",
+   defaults: new { controller = "Cart", action = "Index" });
 
     endpoints.MapControllerRoute(
     name: "them-gio-hang",
@@ -105,6 +105,7 @@ app.UseEndpoints(endpoints =>
     name: "chi-tiet-san-pham",
     pattern: "san-pham/{slug}-{id}",
     defaults: new { controller = "Product", action = "ProdDetail" });
+
 
     endpoints.MapControllerRoute(
     name: "default",

@@ -27,43 +27,35 @@
                                      width="100" />
                             </td>
                             <td>
-                                <input type="text" class="txtQuantity" data
-                                       id="@item.Product.IdPro" value="@item.Quantity" />
+                                <input type="text" class="txtQuantity" data-id="@item.Product.IdPro" value="@item.Quantity" />
                             </td>
-                            <td style="text align:center">
-                                @String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"),
-                                         "{0:c}", item.Product.Price.GetValueOrDefault(0))
+                            <td style="text-align:center">
+                                @String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", item.Product.Price.GetValueOrDefault(0))
                             </td>
-                            <td style="text align:center">
-                                @String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"),
-                                         "{0:c}", item.Product.Price.GetValueOrDefault(0) * item.Quantity)
+                            <td style="text-align:center">
+                                @String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"), "{0:c}", item.Product.Price.GetValueOrDefault(0) * item.Quantity)
                             </td>
                             <td>
-                                <a href="#" data-id="@item.Product.IdPro" class="btn delete">Xoá</a>
+                                <a href="#" class="btn-delete" data-id="@item.Product.IdPro">Xoá</a>
+
                             </td>
                         </tr>
                     }
                 </tbody>
             </table>
-            <button id="btnContinue" class="btn btn-primary">
-                Tiếp tục mua
-                hàng
-            </button>
+            <button id="btnContinue" class="btn btn-primary">Tiếp tục mua hàng</button>
             <button id="btnUpdate" class="btn btn-info">Cập nhật giỏ hàng</button>
             <button id="btnDeleteAll" class="btn btn-danger">Xoá giỏ hàng</button>
             <button id="btnPayment" class="btn btn-success">Thanh toán</button>
         }
         else
         {
-            <div style="margin-top:10px;margin-bottom:10px;margin-left:auto; margin right:auto">
-                <span class="alert alert-danger">
-                    Bạn chưa có sản phẩm nào trong giỏ
-                    hàng
-                </span>
+            <div style="margin-top:10px;margin-bottom:10px;margin-left:auto; margin-right:auto">
+                <span class="alert alert-danger">Bạn chưa có sản phẩm nào trong giỏ hàng</span>
             </div>
         }
     </div>
 </div>
 @section scripts {
     <script src="~/js/cart.js"></script>
-} 
+}

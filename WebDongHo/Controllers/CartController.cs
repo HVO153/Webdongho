@@ -70,8 +70,57 @@ namespace WebDongHo.Controllers
             }
             return RedirectToAction("Index");
         }
+       
+        public IActionResult Update(string cartModel)
+        {
+            var jsonCart = JsonConvert.DeserializeObject<List<CartItem>>(cartModel);
+            var sessionCart =
+            JsonConvert.DeserializeObject<List<CartItem>>(HttpContext.Session.GetString(CartSession));
 
+            foreach (var item in sessionCart)
+            {
+                var jsonItem = jsonCart.SingleOrDefault(x => x.Product.IdPro == item.Product.IdPro);
+                if (jsonItem != null)
+                {
+                    item.Quantity = jsonItem.Quantity;
+                }
+            }
 
+            HttpContext.Session.SetString(CartSession, JsonConvert.SerializeObject(sessionCart));
+            return Json(new
+            {
+                status = true
+            });
+        }
+        public IActionResult Delete(int id)
+        {
+            try
+            {
+                var sessionCart = JsonConvert.DeserializeObject<List<CartItem>>(HttpContext.Session.GetString(CartSession));
+                sessionCart.RemoveAll(x => x.Product.IdPro == id);
+                HttpContext.Session.SetString(CartSession, JsonConvert.SerializeObject(sessionCart));
+
+                return Json(new { status = true });
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error in Delete: " + ex.Message);
+                return Json(new { status = false });
+            }
+        }
+
+        public IActionResult DeleteAll()
+        {
+            HttpContext.Session.Remove(CartSession);
+            return Json(new
+            {
+                status = true
+            });
+        }
+
+       
+
+     
 
 
 
@@ -80,4 +129,4 @@ namespace WebDongHo.Controllers
 
 
 
-            }
+}
