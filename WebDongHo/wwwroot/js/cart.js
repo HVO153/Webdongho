@@ -15,9 +15,6 @@
 
 
 
-
-
-
         $('#btnUpdate').off('click').on('click', function () {
             var listProduct = $('.txtQuantity');
             var cartList = [];
@@ -52,6 +49,9 @@
             });
         });
 
+
+
+       
 
 
 

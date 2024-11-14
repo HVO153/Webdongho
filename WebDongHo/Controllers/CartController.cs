@@ -73,6 +73,26 @@ namespace WebDongHo.Controllers
 
 
 
+        public IActionResult Update(string cartModel)
+        {
+            var jsonCart = JsonConvert.DeserializeObject<List<CartItem>>(cartModel);
+            var sessionCart =
+            JsonConvert.DeserializeObject<List<CartItem>>(HttpContext.Session.GetString(CartSession));
+
+            foreach (var item in sessionCart)
+            {
+                var jsonItem = jsonCart.SingleOrDefault(x => x.Product.IdPro ==item.Product.IdPro);
+                if (jsonItem != null)
+                {
+                    item.Quantity = jsonItem.Quantity;
+                }
+            }
+            HttpContext.Session.SetString(CartSession,JsonConvert.SerializeObject(sessionCart));
+            return Json(new
+            {
+                status = true
+            });
+        }
 
 
 
@@ -122,8 +142,8 @@ namespace WebDongHo.Controllers
         [HttpGet]
         public async Task<IActionResult> Payment(string name)
         {
-            var menus = await _context.Menus.Where(m => m.Hide == 0).OrderBy(m =>m.Order).ToListAsync();
-            var blogs = await _context.Blogs.Where(m => m.Hide == 0).OrderBy(m =>m.Order).Take(2).ToListAsync();
+            var menus = await _context.Menus.Where(m => m.Hide == 0).OrderBy(m => m.Order).ToListAsync();
+            var blogs = await _context.Blogs.Where(m => m.Hide == 0).OrderBy(m => m.Order).Take(2).ToListAsync();
 
             var cart = HttpContext.Session.GetString(CartSession);
             var list = new List<CartItem>();
