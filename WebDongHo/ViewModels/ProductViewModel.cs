@@ -9,5 +9,10 @@ namespace WebDongHo.ViewModels
         public List<Product> Prods { get; set; }
         public String cateName { get; set; }
         public List<Catology> Catologies { get; set; }
+        public ProductViewModel()
+        {
+            Prods = new List<Product>();
+            Catologies = new List<Catology>();
+        }
     }
 }

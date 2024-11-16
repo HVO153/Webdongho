@@ -6,6 +6,8 @@
 
 <h2>@ViewData["Title"]</h2>
 
+
+
 <form asp-action="Edit" method="post" enctype="multipart/form-data">
     <input type="hidden" name="IdPro" value="@Model.Prods.FirstOrDefault()?.IdPro" />
 
@@ -13,29 +15,63 @@
         <label for="NamePro">Tên sản phẩm:</label>
         <input type="text" class="form-control" id="NamePro" name="NamePro" value="@Model.Prods.FirstOrDefault()?.NamePro" required />
     </div>
+
     <div class="form-group">
         <label for="Price">Giá:</label>
         <input type="number" class="form-control" id="Price" name="Price" value="@Model.Prods.FirstOrDefault()?.Price" required />
     </div>
+
     <div class="form-group">
         <label for="Detail">Mô tả:</label>
         <textarea class="form-control" id="Detail" name="Detail" required>@Model.Prods.FirstOrDefault()?.Detail</textarea>
     </div>
+
     <div class="form-group">
         <label for="Img1">Hình ảnh 1:</label>
         <input type="file" class="form-control" id="Img1" name="Img1" />
     </div>
+
     <div class="form-group">
-        <label for="IdCat">Danh mục</label>
+        <label for="Img2">Hình ảnh 2:</label>
+        <input type="file" class="form-control" id="Img2" name="Img2" />
+    </div>
+
+    <div class="form-group">
+        <label for="Img3">Hình ảnh 3:</label>
+        <input type="file" class="form-control" id="Img3" name="Img3" />
+    </div>
+
+    <div class="form-group">
+        <label for="IdCat">Danh mục:</label>
         <select class="form-control" id="IdCat" name="IdCat">
             @foreach (var category in Model.Catologies)
             {
-                <option value="@category.IdCat"
-                        selected="@((category.IdCat == Model.Prods.FirstOrDefault()?.IdCat) ? "selected" : "")">
-                    @category.NameCat
-                </option>
-
+                <option value="@category.IdCat">@category.NameCat</option>
             }
+        </select>
+    </div>
+
+    <!-- Thêm các trường mới -->
+    <div class="form-group">
+        <label for="Nums">Số lượng:</label>
+        <input type="number" class="form-control" id="Nums" name="Nums" value="@Model.Prods.FirstOrDefault()?.Nums" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Order">Thứ tự hiển thị:</label>
+        <input type="number" class="form-control" id="Order" name="Order" value="@Model.Prods.FirstOrDefault()?.Order" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Link">Liên kết sản phẩm:</label>
+        <input type="text" class="form-control" id="Link" name="Link" value="@Model.Prods.FirstOrDefault()?.Link" required />
+    </div>
+
+    <div class="form-group">
+        <label for="Hide">Trạng thái hiển thị (0: Hiển thị, 1: Ẩn):</label>
+        <select class="form-control" id="Hide" name="Hide">
+            <option value="0">Hiển thị</option>
+            <option value="1">Ẩn</option>
         </select>
     </div>
 

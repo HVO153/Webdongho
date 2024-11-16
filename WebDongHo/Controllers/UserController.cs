@@ -264,5 +264,91 @@ namespace WebDongHo.Controllers
 
 
 
+
+
+        [Authorize(Roles = "1")] // Chỉ admin mới được truy cập
+        public async Task<IActionResult> ManageAccounts()
+        {
+            // Lấy danh sách người dùng từ cơ sở dữ liệu
+            var users = await _context.Users.ToListAsync();
+
+            var menus = await _context.Menus.Where(m => m.Hide == 0).OrderBy(m => m.Order).ToListAsync();
+            var blogs = await _context.Blogs.Where(m => m.Hide == 0).OrderBy(m => m.Order).Take(2).ToListAsync();
+
+            var viewModel = new UserViewModel
+            {
+                Menus = menus,
+                Blogs = blogs,
+                Users = users
+            };
+
+            return View(viewModel); // Trả về view với danh sách người dùng
+        }
+
+
+
+
+
+        [HttpGet]
+        [Authorize(Roles = "1")] // Chỉ admin mới được truy cập
+        public async Task<IActionResult> ChangePassword(int userId)
+        {
+            var user = await _context.Users.FindAsync(userId);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            var menus = await _context.Menus.Where(m => m.Hide == 0).OrderBy(m => m.Order).ToListAsync();
+            var blogs = await _context.Blogs.Where(m => m.Hide == 0).OrderBy(m => m.Order).Take(2).ToListAsync();
+
+            var viewModel = new UserViewModel
+            {
+                Menus = menus,
+                Blogs = blogs,
+                Register = user // Truyền thông tin người dùng vào view
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> ChangePassword(UserViewModel model)
+        {
+            if (model.Register != null && !string.IsNullOrEmpty(model.Register.Password))
+            {
+                var user = await _context.Users.FindAsync(model.Register.IdUsers);
+                if (user != null)
+                {
+                    user.Password = BCrypt.Net.BCrypt.HashPassword(model.Register.Password);
+                    _context.Users.Update(user);
+                    await _context.SaveChangesAsync();
+
+                    TempData["SuccessMessage"] = "Đổi mật khẩu thành công!";
+                    return RedirectToAction("ManageAccounts");
+                }
+            }
+
+            TempData["ErrorMessage"] = "Đã xảy ra lỗi. Vui lòng thử lại.";
+            return View(model);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

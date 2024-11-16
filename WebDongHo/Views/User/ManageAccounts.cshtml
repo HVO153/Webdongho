@@ -1,0 +1,46 @@
+﻿@model WebDongHo.ViewModels.UserViewModel
+
+@{
+    ViewData["Title"] = "Quản lý tài khoản";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading">Danh sách tài khoản hiện có</div>
+    <div class="panel-body">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Tên đăng nhập</th>
+                    <th>Họ và tên</th>
+                    <th>Email</th>
+                    <th>Số điện thoại</th>
+                    <th>Địa chỉ</th>
+                    <th>Quyền hạn</th>
+                    <th>Hành động</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var user in Model.Users)
+                {
+                    <tr>
+                        <td>@user.Username</td>
+                        <td>@user.Name</td>
+                        <td>@user.Email</td>
+                        <td>@user.Phone</td>
+                        <td>@user.Address</td>
+                        <td>@(user.Permission == 0 ? "Người dùng" : "Quản trị")</td>
+                        <td>
+                            <!-- Link đến trang đổi mật khẩu -->
+                            <a asp-action="ChangePassword"
+                               asp-controller="User"
+                               asp-route-userId="@user.IdUsers"
+                               class="btn btn-info">
+                                Đổi mật khẩu
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

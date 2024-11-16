@@ -33,12 +33,15 @@
                         <li><a href="gio-hang"><span class="glyphicon glyphicon-shopping-cart"></span></a></li>
                     }
                     <li>
-                        <a href="thong-tin">
+                        <a href="@Url.Action("Info", "User")">
                             <span class="glyphicon glyphicon-user"></span>
                             @username
                         </a>
                     </li>
-                    <li><a href="dang-xuat"><span class="glyphicon glyphicon-log-out"></span></a></li>
+                    <li><a href="@Url.Action("Logout", "User")">
+                            <span class="glyphicon glyphicon-log-out"></span>
+                        </a>
+                    </li>
                 }
                 else
                 {

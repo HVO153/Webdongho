@@ -5,15 +5,24 @@
 }
 
 <div class="container">
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
     <h1>Quản lý sản phẩm</h1>
-    <a href="@Url.Action("Create")" class="btn btn-success">Thêm sản phẩm mới</a>
+    <a href="@Url.Action("Create")" class="btn btn-success">Thêm sản phẩm mới (⁠✯⁠ᴗ⁠✯⁠)</a>
     <table class="table table-bordered mt-3">
         <thead>
             <tr>
-                <th>STT</th>
+                <th>Mã sản phẩm</th>
+                <th>Thứ tự hiển thị</th>
                 <th>Tên sản phẩm</th>
-                <th>Giá</th>
-                <th>Chức năng</th>
+                <th>Giá sản phẩm</th>
+                <th>Tùy chọn (⁠ ͝⁠°⁠ ͜⁠ʖ͡⁠°⁠)⁠ᕤ</th>
             </tr>
         </thead>
         <tbody>
@@ -21,14 +30,26 @@
             {
                 <tr>
                     <td>@product.IdPro</td>
+                    <td>@product.Order</td>
                     <td>@product.NamePro</td>
                     <td>@string.Format("{0:N0}", product.Price) VNĐ</td>
                     <td>
-                        <a href="@Url.Action("Edit", new { id = product.IdPro })" class="btn btn-warning">Sửa</a>
-                        <a href="@Url.Action("Delete", new { id = product.IdPro })" class="btn btn-danger" onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này không?')">Xóa</a>
+                        <a href="@Url.Action("Edit", new { id = product.IdPro })" class="btn btn-warning">Sửa thông tin sản phẩm</a>
+                        <form action="@Url.Action("Delete", "Product", new { id = product.IdPro })"
+                              method="post"
+                              class="d-inline">
+                            @Html.AntiForgeryToken()
+                            <button type="submit"
+                                    class="btn btn-danger"
+                                    onclick="return confirm('Bạn có chắc chắn muốn xóa sản phẩm này không?')">
+                                (Xóa sản phẩm)
+                            </button>
+                        </form>
                     </td>
                 </tr>
             }
         </tbody>
     </table>
 </div>
+
+
