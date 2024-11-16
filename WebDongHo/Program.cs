@@ -50,6 +50,8 @@ app.UseEndpoints(endpoints =>
     pattern: "lien-he",
     defaults: new { controller = "Contact", action = "Index" });
 
+
+
     endpoints.MapControllerRoute(
     name: "bai-viet",
     pattern: "bai-viet",
@@ -101,6 +103,7 @@ app.UseEndpoints(endpoints =>
     name: "chinh-sua",
     pattern: "chinh-sua",
     defaults: new { controller = "User", action = "EditInfo" });
+
 
     endpoints.MapControllerRoute(
     name: "san-pham",

@@ -34,6 +34,8 @@ namespace WebDongHo.Controllers
         {
             return PartialView();
         }
+
+
         public async Task<IActionResult> CateProd(string slug, long id)
         {
             var menus = await _context.Menus.Where(m => m.Hide == 0).OrderBy(m =>
@@ -62,6 +64,11 @@ namespace WebDongHo.Controllers
             };
             return View(viewModel);
         }
+
+
+
+
+
         public async Task<IActionResult> ProdDetail(string slug, long id)
         {
             var menus = await _context.Menus.Where(m => m.Hide == 0).OrderBy(m =>

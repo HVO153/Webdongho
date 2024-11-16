@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authentication;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 namespace WebDongHo.Controllers
 {
         public class UserController : Controller
@@ -242,6 +243,25 @@ namespace WebDongHo.Controllers
 
             return View("EditInfo", model);
         }
+
+
+        [Authorize(Roles = "1")] // Chỉ admin mới được truy cập trang này
+        public async Task<IActionResult> AdminDashboard()
+        {
+            // Lấy danh sách menu từ cơ sở dữ liệu
+            var menus = await _context.Menus.Where(m => m.Hide == 0).OrderBy(m => m.Order).ToListAsync();
+
+            // Khởi tạo ViewModel và truyền menu vào View
+            var viewModel = new UserViewModel
+            {
+                Menus = menus, // Truyền dữ liệu menu vào ViewModel
+                Blogs = await _context.Blogs.Where(m => m.Hide == 0).OrderBy(m => m.Order).Take(2).ToListAsync()
+            };
+
+            return View(viewModel); // Trả về view với ViewModel chứa menu
+        }
+
+
 
 
     }

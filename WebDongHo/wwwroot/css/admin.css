@@ -1,0 +1,85 @@
+﻿#toggleSidebar {
+    font-size: 30px;
+    cursor: pointer;
+    color: #333;
+    transition: color 0.3s;
+}
+
+    #toggleSidebar:hover {
+        color: #4CAF50; /* Màu khi hover */
+    }
+
+.sidebar {
+    width: 0;
+    position: fixed;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: #f8f9fa; /* Nền thanh sidebar sáng hơn */
+    color: #333; /* Màu chữ sáng */
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+    .sidebar.open {
+        width: 250px; /* Kích thước thanh sidebar khi mở */
+    }
+
+    .sidebar a {
+        padding: 10px 15px;
+        text-decoration: none;
+        font-size: 20px;
+        color: #333; /* Màu chữ sáng hơn */
+        display: block;
+        transition: 0.3s;
+    }
+
+        .sidebar a:hover {
+            background-color: #575757; /* Màu nền khi hover */
+            color: #fff; /* Màu chữ khi hover */
+        }
+
+#closeSidebar {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 30px;
+    cursor: pointer;
+    color: #333; /* Màu cho biểu tượng đóng */
+}
+
+.content {
+    transition: margin-left .5s;
+    padding: 20px;
+}
+
+    .content.open {
+        margin-left: 250px; /* Kéo nội dung sang phải khi sidebar mở */
+    }
+
+/* Điều chỉnh kích thước và màu sắc của biểu tượng */
+#toggleSidebar svg {
+    width: 30px; /* Kích thước của biểu tượng */
+    height: 30px;
+    fill: #333; /* Màu sắc biểu tượng */
+    cursor: pointer; /* Khi di chuột vào, biểu tượng sẽ có kiểu con trỏ */
+}
+
+    /* Thêm hiệu ứng hover nếu muốn */
+    #toggleSidebar svg:hover {
+        fill: #007bff; /* Màu khi hover */
+    }
+
+/* Điều chỉnh kích thước và màu sắc của biểu tượng đóng */
+#closeSidebar svg {
+    width: 30px; /* Kích thước của biểu tượng */
+    height: 30px;
+    fill: #333; /* Màu sắc biểu tượng */
+    cursor: pointer; /* Khi di chuột vào, biểu tượng sẽ có kiểu con trỏ */
+}
+
+    /* Thêm hiệu ứng hover nếu muốn */
+    #closeSidebar svg:hover {
+        fill: #dc3545; /* Màu khi hover (màu đỏ) */
+    }

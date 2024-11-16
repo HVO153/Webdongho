@@ -1,0 +1,59 @@
+﻿@model WebDongHo.ViewModels.UserViewModel
+
+@{
+    ViewData["Title"] = "Trang Quản Trị";
+}
+
+<!-- Liên kết với file CSS admin.css -->
+<link href="~/css/admin.css" rel="stylesheet" type="text/css" />
+
+<!-- Nút mở/đóng sidebar -->
+<div id="toggleSidebar" onclick="toggleSidebar()">
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" />
+    </svg>
+</div>
+
+
+
+<!-- Thanh sidebar dọc -->
+<div class="sidebar" id="sidebar">
+    <!-- Nút đóng sidebar -->
+    <div id="closeSidebar" onclick="toggleSidebar()">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 16.811c0 .864-.933 1.406-1.683.977l-7.108-4.061a1.125 1.125 0 0 1 0-1.954l7.108-4.061A1.125 1.125 0 0 1 21 8.689v8.122ZM11.25 16.811c0 .864-.933 1.406-1.683.977l-7.108-4.061a1.125 1.125 0 0 1 0-1.954l7.108-4.061a1.125 1.125 0 0 1 1.683.977v8.122Z" />
+        </svg>
+    </div>
+
+    <h2>Quản Trị</h2>
+    <ul>
+        
+        <li><a href="@Url.Action("ManageProducts", "User")">Quản Lý Sản Phẩm</a></li>
+        <li><a href="@Url.Action("ManageAccounts", "User")">Quản Lý Tài Khoản</a></li>
+    </ul>
+</div>
+
+<!-- Nội dung chính -->
+<div class="content" id="content">
+    <h2>@ViewData["Title"]</h2>
+    <p>Chào mừng đến với trang quản trị. Bạn có thể thêm các tính năng quản lý ở đây.</p>
+
+    <!-- Các tính năng quản lý khác -->
+    <h3>Quản lý Sản Phẩm</h3>
+    <p>Thêm, sửa, xóa sản phẩm từ hệ thống.</p>
+
+    <h3>Quản lý Đơn Hàng</h3>
+    <p>Kiểm tra các đơn hàng và tình trạng giao hàng.</p>
+
+    <h3>Quản lý Người Dùng</h3>
+    <p>Quản lý thông tin người dùng và quyền truy cập.</p>
+</div>
+
+<!-- JavaScript để điều khiển ẩn/hiện sidebar -->
+<script>
+    function toggleSidebar() {
+        // Toggle class 'open' cho sidebar và content
+        document.getElementById('sidebar').classList.toggle('open');
+        document.getElementById('content').classList.toggle('open');
+    }
+</script>

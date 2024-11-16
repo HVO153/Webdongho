@@ -1,4 +1,4 @@
-.navbar-inverse {
+﻿.navbar-inverse {
     background-color: #156388; 
     border-color: #156388;
     margin-top: 5px;
@@ -100,3 +100,31 @@
     cursor: pointer;
 }
 .panel-footer
+
+
+
+
+
+.pagination-centered {
+    display: inline-block;
+}
+
+.panel-footer.text-center {
+    text-align: center;
+}
+
+.navbar-inverse .navbar-nav > li.active > a,
+.navbar-inverse .navbar-nav > li.active > a:hover,
+.navbar-inverse .navbar-nav > li.active > a:focus {
+    color: #fff;
+    background-color: #FF4C22;
+    font-weight: bold;
+}
+.main-image {
+    width: 100%;
+    height: auto;
+}
+
+.thumbnail {
+    cursor: pointer;
+} 

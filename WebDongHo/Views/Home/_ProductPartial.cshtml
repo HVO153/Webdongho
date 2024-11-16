@@ -1,61 +1,55 @@
 ﻿@model WebDongHo.ViewModels.HomeViewModel
-<div class="panel panel-info panel-prod">
- <div class="panel-heading panel-heading-prod"><i class="fa fa-spinner faspin"></i> Sản phẩm thời trang nam</div>
- <div class="panel-body">
- <div class="row">
- @foreach (var item in Model.CatProds)
- {       <div class="col-md-4">
-         <div class="thumbnail">
-         <img src="~/images/products/@item.Img1" class="img-rounded" alt="@item.NamePro">
-        <div class="caption">
-            <h4>@item.NamePro</h4>
-                            <p>Giá: @string.Format("{0:N0}", item.Price) VNĐ</p>
-                            <p>
-                                <a href="san-pham/@item.Link-@item.IdPro" class="btn btn-info" role="button"><i class="fa fa-rocket"></i> Chi tiết</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            }
-        </div>
-    </div>
-    <div class="panel-footer">
-        <p class="more-prod">
-            <a href="/san-pham" target="_blank">
-                Xem thêm sản
-                phẩm...
-            </a>
-        </p>
-    </div>
-</div>
-<div class="panel panel-danger panel-prod">
-    <div class="panel-heading panel-heading-prod"><i class="fa fa-spinner faspin"></i> Sản phẩm thời trang phụ kiện </div>
-    <div class="panel-body">
-        <div class="row">
-            @foreach (var item in Model.DogProds)
-            {
-                <div class="col-md-4">
-                    <div class="thumbnail">
-                        <img src="~/images/products/@item.Img1" class="img-rounded"
-                             alt="@item.NamePro">
-                        <div class="caption">
-                            <h4>@item.NamePro</h4>
-                            <p>Giá: @string.Format("{0:N0}", item.Price) VNĐ</p>
-                            <p>
-                                <a href="san-pham/@item.Link-@item.IdPro" class="btn btn-info" role="button"><i class="fa fa-rocket"></i> Chi tiết</a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            }
-        </div>
-    </div>
-    <div class="panel-footer">
-        <p class="more-prod">
-            <a href="/san-pham" target="_blank">
-                Xem thêm sản
-                phẩm...
-            </a>
-        </p>
-    </div>
+
+<div class="panel panel-info panel-prod"> 
+    <div class="panel-heading panel-heading-prod"><i class="fa fa-spinner fa
+spin"></i> @Model.SmaWCateProds.NameCat</div> 
+    <div class="panel-body"> 
+        <div class="row"> 
+            @foreach (var item in Model.SmaWatchProds) 
+            { 
+                <div class="col-md-4"> 
+                    <div class="thumbnail"> 
+                        <img src="~/images/products/@item.Img1" class="img-rounded" 
+alt="@item.NamePro"> 
+                        <div class="caption"> 
+                            <h4>@item.NamePro</h4> 
+                            <p>Giá: @string.Format("{0:N0}", item.Price) VNĐ</p> 
+                            <p><a href="san-pham/@item.Link-@item.IdPro" class="btn 
+btn-info" role="button"><i class="fa fa-rocket"></i> Chi tiết</a></p> 
+                        </div> 
+                    </div> 
+                </div> 
+            } 
+        </div> 
+    </div> 
+    <div class="panel-footer"> 
+        <p class="more-prod"><a href="@Model.SmaWCateProds.Link-@Model.SmaWCateProds.IdCat">Xem thêm sản phẩm...</a></p> 
+    </div> 
+</div> 
+ 
+<div class="panel panel-danger panel-prod"> 
+    <div class="panel-heading panel-heading-prod"><i class="fa fa-spinner fa
+spin"></i> @Model.MecWCateProds.NameCat</div> 
+    <div class="panel-body"> 
+        <div class="row"> 
+            @foreach (var item in Model.MecWatchProds) 
+            { 
+                <div class="col-md-4"> 
+                    <div class="thumbnail"> 
+                        <img src="~/images/products/@item.Img1" class="img-rounded" 
+alt="@item.NamePro"> 
+                        <div class="caption"> 
+                            <h4>@item.NamePro</h4> 
+                            <p>Giá: @string.Format("{0:N0}", item.Price) VNĐ</p> 
+ <p><a href="san-pham/@item.Link-@item.IdPro" class="btn 
+btn-info" role="button"><i class="fa fa-rocket"></i> Chi tiết</a></p> 
+                        </div> 
+                    </div> 
+                </div> 
+            } 
+        </div> 
+    </div> 
+    <div class="panel-footer"> 
+        <p class="more-prod"><a href="@Model.MecWCateProds.Link-@Model.MecWCateProds.IdCat">Xem thêm sản phẩm...</a></p> 
+    </div> 
 </div>

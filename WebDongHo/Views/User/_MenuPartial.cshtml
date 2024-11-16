@@ -1,6 +1,7 @@
 ﻿@using System.Security.Claims
 
 @model WebDongHo.ViewModels.UserViewModel
+
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -24,7 +25,8 @@
                     string permission = User.FindFirst(ClaimTypes.Role)?.Value;
                     if (permission == "1")
                     {
-                        <li><a href="quan-tri"><span class="glyphicon glyphicon-cog"></span></a></li>
+                        <li><a href="@Url.Action("AdminDashboard", "User")"><span class="glyphicon glyphicon-cog"></span> Quản Trị</a></li>
+
                     }
                     else
                     {

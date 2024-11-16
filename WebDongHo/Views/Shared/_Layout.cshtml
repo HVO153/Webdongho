@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="~/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/vendor/font-awesome/css/font-awesome.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
+    
 </head>
 <body>
     <div class="header">
@@ -28,37 +29,10 @@
     </div>
     <div class="content">
         <div class="container">
-            <div class="col-md-9">
+            <div >
                 @RenderBody()
             </div>
-            <div class="col-md-3">
-                @await Html.PartialAsync("_BlogPartial")
-                <div class="panel panel-success panel-post">
-                    <div class="panel-heading panel-heading-prod"><i class="fa fa-paperplane"></i> Quảng cáo</div>
-                    <div class="panel-body panel-body-post">
-                        <img src="~/images/products/somitaydai.jpg"
-                             class="img-rounded img-adv" alt="Quảng cáo" />
-                        <marquee>
-                            Tôn vinh phong cách của bạn với những chiếc áo sơ mi nam tinh tế, 
-                            như cách bạn dành sự quan tâm đặc biệt cho chiếc áo sơ mi yêu thích của mình!
-                        </marquee>
-                    </div>
-                </div>
-                <div class="youtube">
-                    <iframe width="110%" height="300"
-                            src="https://www.youtube.com/embed/YV07/A50O8g4?si=rL-wjRdamiOMcZ56" title="YouTube
-            video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write;
-            encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-                </div>
-                <div class="map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3918.4206985418705!2d106.78
-                    253487570396!3d10.855572157727538!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x
-                    3175276e7ea103df%3A0xb6cf10bb7d719327!2zSFVURUNIIC0gxJDhuqFpIGjhu41jIEPDtG5nIG5naOG7hy
-                        BUUC5IQ00gKFRodSBEdWMgQ2FtcHVzKQ!5e0!3m2!1svi!2s!4v1710172843840!5m2!1svi!2s"
-                            width="110%" height="300" style="border:0;" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
-                </div>
-            </div>
+         
         </div>
     </div>
     <div class="footer">
