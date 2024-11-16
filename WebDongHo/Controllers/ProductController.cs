@@ -125,11 +125,14 @@ namespace WebDongHo.Controllers
             var blogs = await _context.Blogs.Where(m => m.Hide == 0).OrderBy(m => m.Order).Take(2).ToListAsync();
             var prods = await _context.Products.OrderBy(m => m.Order).ToListAsync();
 
+
+
             var viewModel = new ProductViewModel
             {
                 Menus = menus,
                 Blogs = blogs,
-                Prods = prods
+                Prods = prods,
+                Catologies = _context.Catologies.ToList()
             };
 
             return View(viewModel);
