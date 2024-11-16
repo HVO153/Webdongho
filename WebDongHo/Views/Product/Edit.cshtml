@@ -1,0 +1,43 @@
+﻿@model WebDongHo.ViewModels.ProductViewModel
+
+@{
+    ViewData["Title"] = "Chỉnh sửa sản phẩm";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <input type="hidden" name="IdPro" value="@Model.Prods.FirstOrDefault()?.IdPro" />
+
+    <div class="form-group">
+        <label for="NamePro">Tên sản phẩm:</label>
+        <input type="text" class="form-control" id="NamePro" name="NamePro" value="@Model.Prods.FirstOrDefault()?.NamePro" required />
+    </div>
+    <div class="form-group">
+        <label for="Price">Giá:</label>
+        <input type="number" class="form-control" id="Price" name="Price" value="@Model.Prods.FirstOrDefault()?.Price" required />
+    </div>
+    <div class="form-group">
+        <label for="Detail">Mô tả:</label>
+        <textarea class="form-control" id="Detail" name="Detail" required>@Model.Prods.FirstOrDefault()?.Detail</textarea>
+    </div>
+    <div class="form-group">
+        <label for="Img1">Hình ảnh 1:</label>
+        <input type="file" class="form-control" id="Img1" name="Img1" />
+    </div>
+    <div class="form-group">
+        <label for="IdCat">Danh mục</label>
+        <select class="form-control" id="IdCat" name="IdCat">
+            @foreach (var category in Model.Catologies)
+            {
+                <option value="@category.IdCat"
+                        selected="@((category.IdCat == Model.Prods.FirstOrDefault()?.IdCat) ? "selected" : "")">
+                    @category.NameCat
+                </option>
+
+            }
+        </select>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Cập nhật sản phẩm</button>
+</form>

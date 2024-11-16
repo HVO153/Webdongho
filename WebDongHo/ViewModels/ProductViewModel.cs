@@ -8,6 +8,6 @@ namespace WebDongHo.ViewModels
         public List<Blog> Blogs { get; set; }
         public List<Product> Prods { get; set; }
         public String cateName { get; set; }
-
+        public List<Catology> Catologies { get; set; }
     }
 }
