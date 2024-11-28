@@ -7,8 +7,8 @@ namespace WebDongHo.Controllers
 {
     public class ContactController: Controller
     {
-        private readonly WebsiteBanAoContext _context;
-        public ContactController(WebsiteBanAoContext context)
+        private readonly DonghodbContext _context;
+        public ContactController(DonghodbContext context)
         {
             _context = context;
         }

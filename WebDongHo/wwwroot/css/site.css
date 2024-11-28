@@ -77,31 +77,6 @@
     text-decoration: none;
     color: #fff;
 }
-.pagination-centered {
-    display: inline-block;
-}
-.panel-footer.text-center {
-    text-align: center;
-}
-
-.navbar-inverse .navbar-nav > li.active > a,
-.navbar-inverse .navbar-nav > li.active > a:hover,
-.navbar-inverse .navbar-nav > li.active > a:focus {
-    color: #fff;
-    background-color: #FF4C22;
-    font-weight: bold;
-}
-.main-image {
-    width: 100%;
-    height: auto;
-}
-
-.thumbnail {
-    cursor: pointer;
-}
-.panel-footer
-
-
 
 
 
@@ -127,4 +102,6 @@
 
 .thumbnail {
     cursor: pointer;
-} 
+}
+
+

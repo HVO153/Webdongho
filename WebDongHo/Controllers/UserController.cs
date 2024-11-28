@@ -10,8 +10,8 @@ namespace WebDongHo.Controllers
 {
         public class UserController : Controller
         {
-            private readonly WebsiteBanAoContext _context;
-            public UserController(WebsiteBanAoContext context)
+            private readonly DonghodbContext _context;
+            public UserController(DonghodbContext context)
             {
                 _context = context;
             }

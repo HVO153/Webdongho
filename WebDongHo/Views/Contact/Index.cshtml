@@ -3,141 +3,79 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <div class="panel panel-primary">
-    <div class="panel-heading panel-heading-prod">
-        <i class="fa fa-info-circle"></i>
-        Thông tin cửa hàng
-    </div>
-    <div class="panel-body" style="text-align:justify">
-        <p>
-            Chào mừng bạn đến với SHIRT STORE - điểm đến lý tưởng cho những người yêu thời trang nam!
-            SHIRT STORE không chỉ là một cửa hàng thời trang thông thường, mà còn là điểm đến tuyệt vời cho
-            những người đam mê và quan tâm đến phong cách và phong cách sống của mình.
-        </p>
-        <p>
-            Tại SHIRT STORE, chúng tôi tự hào cung cấp một bộ sưu tập đa dạng các mẫu áo sơ mi nam đẳng cấp,
-            từ kiểu dáng cổ điển đến những thiết kế hiện đại và phong cách. Chúng tôi cam kết mang lại cho bạn
-            những sản phẩm chất lượng nhất, giúp bạn tự tin và lịch lãm trong mọi tình huống.
-        </p>
-        <p>
-            Ngoài ra, SHIRT STORE cũng là nguồn cảm hứng và kiến thức về thời trang nam. Chúng tôi cung cấp các
-            bài viết, hướng dẫn và gợi ý về cách kết hợp trang phục và phụ kiện, giúp bạn tỏa sáng và thể hiện phong
-            cách cá nhân của mình một cách tinh tế và ấn tượng.
-        </p>
-        <p>
-            Hãy ghé thăm SHIRT STORE ngay hôm nay để khám phá và trải nghiệm sự đa dạng và chất lượng của bộ sưu tập 
-            áo sơ mi nam, và tạo ra phong cách riêng biệt cho bản thân bạn!
-        </p>
-    </div>
-</div>
-<div class="panel panel-primary">
-    <div class="panel-heading panel-heading-prod">
-        <i class="fa fa-info-circle"></i>
-        Khách hàng nên đọc
-    </div>
-    <div class="panel-body" style="text-align:justify">
-        <ul class="nav nav-tabs">
-            <li class="active">
-                <a data-toggle="tab" href="#chatluong">
-                    Chất Lượng và An Toàn
-                </a>
-            </li>
-            <li><a data-toggle="tab" href="#hoantien">Hoàn Tiền và Đổi Trả</a></li>
-            <li><a data-toggle="tab" href="#baomat">Bảo Mật Thông Tin</a></li>
-            <li><a data-toggle="tab" href="#giaohang">Giao Hàng Đúng Hẹn</a></li>
-        </ul>
-        <div class="tab-content">
-            <div id="chatluong" class="tab-pane fade in active">
-                <p>
-                    Tại SHIRT STORE, chúng tôi cam kết mang đến cho bạn những sản phẩm chất lượng cao,
-                    đảm bảo an toàn cho sức khỏe và thoải mái tuyệt đối. Mỗi sản phẩm đều được lựa chọn
-                    kỹ càng và kiểm tra chất lượng để đảm bảo rằng bạn có thể tin tưởng hoàn toàn vào sự lựa chọn của mình.
-                </p>
-            </div>
-            <div id="hoantien" class="tab-pane fade">
-                <p>
-                    Trong trường hợp sản phẩm không đáp ứng được mong đợi của bạn hoặc
-                    có bất kỳ vấn đề gì liên quan đến chất lượng, chúng tôi cam kết hoàn tiền hoặc đổi trả
-                    sản phẩm theo điều kiện cụ thể.
-                </p>
-            </div>
-            <div id="baomat" class="tab-pane fade">
-                <p>
-                    Chúng tôi cam kết bảo vệ thông tin cá nhân của khách hàng và không
-                    chia sẻ thông tin này với bất kỳ bên thứ ba nào mà không có sự đồng ý của khách
-                    hàng.
-                </p>
-            </div>
-            <div id="giaohang" class="tab-pane fade">
-                <p>
-                    Chúng tôi cam kết giao hàng đúng hẹn và đảm bảo sản phẩm được giao
-                    đến tay khách hàng một cách an toàn và nhanh chóng.
-                </p>
+    <!-- Contact Start -->
+    <div class="contact">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-7">
+                    <div class="form">
+                        <form action="" method="">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input type="text" class="form-control" placeholder="Tên " />
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="email" class="form-control" placeholder="Email" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Chủ đề" />
+                            </div>
+                            <div class="form-group">
+                                <textarea class="form-control" rows="5" placeholder="Nội dung"></textarea>
+                            </div>
+                            <div><button type="submit">Gửi tin</button></div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="contact-info">
+                        <div class="section-header">
+                            <h3>Liên hệ</h3>
+                            <p>
+                                Liên hệ ngay để được tư vấn chi tiết và giải đáp nhanh chóng. Chúng tôi luôn sẵn sàng hỗ trợ bạn.
+                            </p>
+                        </div>
+                        <h4><i class="fa fa-map-marker"></i>XWATCH, Thành phố Thủ Đức</h4>
+                        <h4><i class="fa fa-envelope"></i>Xwatch@gmail.com</h4>
+                        <h4><i class="fa fa-phone"></i>0867779873</h4>
+                        <div class="social">
+                            <a href=""><i class="fa fa-twitter"></i></a>
+                            <a href=""><i class="fa fa-facebook"></i></a>
+                            <a href=""><i class="fa fa-linkedin"></i></a>
+                            <a href=""><i class="fa fa-instagram"></i></a>
+                            <a href=""><i class="fa fa-youtube"></i></a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<div class="panel panel-primary">
-    <div class="panel-heading panel-heading-prod">
-        <i class="fa fa-info-circle"></i>
-        Thông tin chuyển khoản
-    </div>
-    <div class="panel-body" style="text-align:justify">
-        <p>Vui lòng chuyển khoản thanh toán đến một trong các tài khoản sau:</p>
-        <ul>
-            <li><strong>Ngân hàng ABC:</strong> Số tài khoản: 1234567890</li>
-            <li><strong>Ngân hàng XYZ:</strong> Số tài khoản: 0987654321</li>
-            <li><strong>Ngân hàng DEF:</strong> Số tài khoản: 5432109876</li>
-        </ul>
-        <p>
-            Xin vui lòng ghi rõ thông tin đơn hàng khi chuyển khoản. Đơn hàng sẽ được
-            xác nhận sau khi nhận được thanh toán.
-        </p>
-    </div>
-</div>
-<div class="panel panel-primary">
-    <div class="panel-heading panel-heading-prod">
-        <i class="fa fa-info-circle"></i>
-        Phản hồi với SHIRT STORE
-    </div>
-    <div class="panel-body">
-        <div class="panel panel-body">
-            <form class="form-horizontal">
-                <div class="form-group">
-                    <label class="col-md-2" for="txtusername">Họ và tên:</label>
-                    <div class="col-md-10">
-                        <input type="text" class="form-control" id="txtusername"
-                               placeholder="Nhập họ và tên">
-                    </div>
+    <!-- Contact End -->
+   
+    <!-- Footer Bottom Start -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 copyright">
+                    <p>Copyright &copy; <a href="https://htmlcodex.com">X Watch</a>. Mọi quyền được bảo lưu</p>
                 </div>
-                <div class="form-group">
-                    <label class="col-md-2" for="txtemail">Email:</label>
-                    <div class="col-md-10">
-                        <input type="email" class="form-control" id="txtemail"
-                               placeholder="Nhập địa chỉ email">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-md-2" for="txttitle">Tiêu đề:</label>
-                    <div class="col-md-10">
-                        <input type="text" class="form-control" id="txttitle"
-                               placeholder="Nhập tiêu đề">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-md-2" for="txtdetail">Nội dung:</label>
-                    <div class="col-md-10">
-                        <textarea class="form-control" id="txtdetail" rows="5"
-                                  placeholder="Nhập nội dung"></textarea>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <button type="submit" id="btnSend" class="btn btn-danger">
-                            <i class="fa fa-external-link"></i> Gửi
-                        </button>
-                    </div>
-                </div>
-            </form>
+
+            </div>
         </div>
     </div>
+    <!-- Footer Bottom End -->
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/slick/slick.min.js"></script>
+
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
 </div>

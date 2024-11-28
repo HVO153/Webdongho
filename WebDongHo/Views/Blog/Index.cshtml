@@ -6,17 +6,20 @@
 }
 
 
+<div class="blog-container" style="max-width: 1200px; margin: 0 auto; padding: 20px;">
+    @foreach (var blog in Model.Blogs)
+    {
+        <div class="blog-card" style="background: #ffffff; border: 1px solid #ddd; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); margin-bottom: 20px; overflow: hidden; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+            <div class="blog-header" style="background: #3F69AA; color: #ffffff; padding: 15px; font-size: 20px; font-weight: bold; text-align: center; border-bottom: 2px solid #0056b3;">
+                <h2 style="margin: 0; color: #ffffff;">
+                    <i class="fa fa-paper-plane" style="margin-right: 8px;"></i> @blog.Title
+                </h2>
+            </div>
+            <div class="blog-body" style="padding: 20px; font-size: 16px; color: #333; line-height: 1.6; text-align: justify;">
+                @Html.Raw(blog.Description)
+            </div>
+        </div>
+    }
+</div>
 
-@foreach (var blog in Model.Blogs)
-{
-    <div class="panel panel-primary">
-        <div class="panel-heading panel-heading-prod">
-            <i class="fa fa-paper-plane"></i>
-            @blog.Title
-        </div>
-        <div class="panel-body" style="text-align:justify">
-            @Html.Raw(blog.Description)
-        </div>
-    </div>
-}
 

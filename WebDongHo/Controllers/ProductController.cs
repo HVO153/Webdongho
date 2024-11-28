@@ -11,8 +11,8 @@ namespace WebDongHo.Controllers
 
 
 
-        private readonly WebsiteBanAoContext _context;
-        public ProductController(WebsiteBanAoContext context)
+        private readonly DonghodbContext _context;
+        public ProductController(DonghodbContext context)
         {
             _context = context;
         }

@@ -9,9 +9,9 @@ namespace WebDongHo.Controllers
 {
     public class BlogController : Controller
     {
-        private readonly WebsiteBanAoContext _context;
+        private readonly DonghodbContext _context;
 
-        public BlogController(WebsiteBanAoContext context)
+        public BlogController(DonghodbContext context)
         {
             _context = context;
         }

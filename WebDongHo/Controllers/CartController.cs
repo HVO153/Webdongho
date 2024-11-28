@@ -8,9 +8,9 @@ namespace WebDongHo.Controllers
 
     public class CartController : Controller
     {
-        private readonly WebsiteBanAoContext _context;
+        private readonly DonghodbContext _context;
         private const string CartSession = "CartSession";
-        public CartController(WebsiteBanAoContext context)
+        public CartController(DonghodbContext context)
         {
             _context = context;
         }

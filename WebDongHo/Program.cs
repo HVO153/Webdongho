@@ -19,8 +19,8 @@ AddCookie(options =>
 builder.Services.AddSession();
 
 var connectionString =
-builder.Configuration.GetConnectionString("WebsiteBanAoConnection");
-builder.Services.AddDbContext<WebsiteBanAoContext>(options =>
+builder.Configuration.GetConnectionString("DonghodbConnection");
+builder.Services.AddDbContext<DonghodbContext>(options =>
 options.UseSqlServer(connectionString));
 
 var app = builder.Build();
@@ -89,10 +89,10 @@ app.UseEndpoints(endpoints =>
     defaults: new { controller = "Cart", action = "AddItem" });
 
 
-   endpoints.MapControllerRoute(
-   name: "thanh-toan",
-   pattern: "thanh-toan",
-   defaults: new { controller = "Cart", action = "Payment" });
+    endpoints.MapControllerRoute(
+    name: "thanh-toan",
+    pattern: "thanh-toan",
+    defaults: new { controller = "Cart", action = "Payment" });
 
     endpoints.MapControllerRoute(
     name: "hoan-thanh",

@@ -8,8 +8,8 @@ namespace WebDongHo.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly WebsiteBanAoContext _context;
-        public HomeController(WebsiteBanAoContext context)
+        private readonly DonghodbContext _context;
+        public HomeController(DonghodbContext context)
         {
             _context = context;
         }

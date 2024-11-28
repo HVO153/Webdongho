@@ -3,62 +3,216 @@
 <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SHIRT STORE</title>
+    <title>X WATCH</title>
     <meta name="keywords" content="your_keyworks" />
-    <meta name="description" content="Website thời trang nam - SHIRT STORE" />
-    <meta name="copyright" content="SHIRT STORE" />
-    <meta name="author" content="SHIRT STORE" />
-    <link rel="shortcut icon" href="~/images/favicon.png" type="image/x-icon" />
+    <meta name="description" content="X WATCH" />
+    <meta name="copyright" content="X WATCH " />
+    <meta name="author" content="X WATCH" />
+    <link rel="shortcut icon" href="~/images/WATCH.jpg" type="image/x-icon" />
     <link rel="stylesheet" href="~/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/vendor/font-awesome/css/font-awesome.min.css" />
-   
-    <link href="~/css/site.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700&display=swap" rel="stylesheet">
+
+    <!-- CSS Libraries -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="~/lib/slick/slick.css" rel="stylesheet">
+    <link href="~/lib/slick/slick-theme.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="~/css/style.css" rel="stylesheet">
+
+
 </head>
 <body>
+    <div class="top-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-3">
+                    <div class="logo">
+                        <a href="">
+                            <img src="~/images/WATCH.jpg" alt="SHIRT STORE">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="search">
+                        <input type="text" placeholder="Search">
+                        <button><i class="fa fa-search"></i></button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Top Header End -->
+    <!-- Header Start -->
     <div class="header">
         <div class="container">
-            <div class="row">
-                <a href="trang-chu">
-                    <img src="~/images/LogoTS.png" alt="SHIRT STORE">
-                </a>
-            </div>
-            <div class="container">
-                @await Html.PartialAsync("_MenuPartial")
-            </div>
+            <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+                <a href="#" class="navbar-brand"></a>
+                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                    <div class="navbar-nav m-auto">
+
+                        @await Html.PartialAsync("_MenuPartial")
+
+                    </div>
+                </div>
+            </nav>
         </div>
     </div>
+    <!-- Header End -->
+
+
+
     <div class="content">
+
+
+        @RenderBody()
+
+
+
+    </div>
+
+
+
+
+    <!-- Newsletter Start -->
+    <div class="newsletter">
         <div class="container">
-            <div >
-                @RenderBody()
+            <div class="section-header">
+                <h3>Đăng ký nhận bản tin của chúng tôi</h3>
+                <p>
+                    Khách hàng rất quan trọng, khách hàng sẽ được khách hàng theo đuổi. Cho đến khi phim hoạt hình là rất nhiều niềm vui. Không có vấn đề gì, đôi khi nó không hoạt động
+                </p>
             </div>
-         
+            <div class="form">
+                <input type="email" value="Your email here">
+                <button>Gửi đi</button>
+            </div>
         </div>
     </div>
+    <!-- Newsletter End -->
+    <!-- Brand Start -->
+    <div class="brand">
+        <div class="container">
+            <div class="section-header">
+                <h3>Thương hiệu của chúng tôi</h3>
+                <p>
+                    Khách hàng rất quan trọng, khách hàng sẽ được khách hàng theo đuổi. Cho đến khi phim hoạt hình là rất nhiều niềm vui. Không có vấn đề gì, đôi khi nó không hoạt động
+                </p>
+            </div>
+            <div class="brand-slider">
+                <div class="brand-item"><img src="~/images/brand-1.png" alt=""></div>
+                <div class="brand-item"><img src="~/images/brand-2.png" alt=""></div>
+                <div class="brand-item"><img src="~/images/brand-3.png" alt=""></div>
+                <div class="brand-item"><img src="~/images/brand-4.png" alt=""></div>
+                <div class="brand-item"><img src="~/images/brand-5.png" alt=""></div>
+                <div class="brand-item"><img src="~/images/brand-6.png" alt=""></div>
+
+            </div>
+
+        </div>
+    </div>
+    <!-- Brand End -->
+    <!-- Footer Start -->
     <div class="footer">
-        <div class="container container-footer">
-            <div class="col-md-8">
-                <h4>SHIRT STORE - Cửa hàng thời trang nam</h4>
-                <p>
-                    Địa chỉ:Khu CNC, Phường Hiệp Phú, Tp. Thử Đức,
-                    Tp. Hồ chí Minh
-                </p>
-                <p>
-                    SĐT: <a class="info" href="tel:0868895261">086.8895.261</a> (Long
-                    Nguyễn)
-                </p>
-                <p>
-                    Email: <a class="info" href="mailto:
-                                LongShirt@gmail.com">LongShirt@gmail.com</a>
-                </p>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-widget">
+                        <h1>X WATCH</h1>
+                        <p>
+                            Khách hàng rất quan trọng, khách hàng sẽ được khách hàng theo đuổi. Khối lượng của khối lượng. Khối lượng của khối lượng. Vestibulum porttitor, nỗi sợ hãi nhưng yếu tố giá cả, nếu bạn không biết thành viên nào trong nhóm thì bạn không muốn làm gì cả.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-widget">
+                        <h3 class="title">
+                            Trang hữu ích
+                        </h3>
+                        <ul>
+                            <li><a href="product.html">Sản phẩm</a></li>
+                            <li><a href="product-detail.html">Chi tiết sản phẩm</a></li>
+                            <li><a href="cart.html">Giỏ hàng</a></li>
+                            <li><a href="checkout.html">Thanh toán</a></li>
+                            <li><a href="login.html">Đăng nhập và đăng ký</a></li>
+                            <li><a href="my-account.html">Tài khoản của tôi</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-widget">
+                        <h3 class="title">Quick Links</h3>
+                        <ul>
+                            <li><a href="product.html">Sản phẩm</a></li>
+                            <li><a href="cart.html">Giỏ hàng</a></li>
+                            <li><a href="checkout.html">Thanh toán</a></li>
+                            <li><a href="login.html">Đăng nhập và đăng ký</a></li>
+                            <li><a href="my-account.html">Tài khoản của tôi</a></li>
+                            <li><a href="wishlist.html">Danh sách ước</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-lg-3 col-md-6">
+                    <div class="footer-widget">
+                        <h3 class="title">Liên lạc</h3>
+                        <div class="contact-info">
+                            <p><i class="fa fa-map-marker"></i>XWATCH, Thành phố Thủ Đức</p>
+                            <p><i class="fa fa-envelope"></i>Xwatch@gmail.com</p>
+                            <p><i class="fa fa-phone"></i>0867779873</p>
+                            <div class="social">
+                                <a href=""><i class="fa fa-twitter"></i></a>
+                                <a href=""><i class="fa fa-facebook"></i></a>
+                                <a href=""><i class="fa fa-linkedin"></i></a>
+                                <a href=""><i class="fa fa-instagram"></i></a>
+                                <a href=""><i class="fa fa-youtube"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="col-md-4">
-                <img src="~/images/LogoTS.png" alt="logo" />
-                <p></p>
-                <p>Số lượng truy cập hiện tại: 600</p>
+
+            <div class="row payment">
+                <div class="col-md-6">
+                    <div class="payment-method">
+                        <p>Chúng tôi chấp nhận:</p>
+                        <img src="~/images/payment-method.png" alt="Payment Method" />
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="payment-security">
+                        <p>Được bảo đảm bởi:</p>
+                        <img src="~/images/godaddy.svg" alt="Payment Security" />
+                        <img src="~/images/norton.svg" alt="Payment Security" />
+                        <img src="~/images/ssl.svg" alt="Payment Security" />
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <!-- Footer End -->
+
+
+
+
+
+
+
+
+
+
     <div id="modalSignup" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -133,12 +287,33 @@
             </div>
         </div>
     </div>
+
+
+    <!-- Back to Top -->
+    <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+
+
+
+
     <script src="~/js/jquery.min.js"></script>
     <script src="~/js/bootstrap.min.js"></script>
     <script src="js/site.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/easing/easing.min.js"></script>
+    <script src="~/lib/slick/slick.min.js"></script>
+
+
+    <!-- Template Javascript -->
+    <script src="~/js/main.js"></script>
+
+
+
+
+
+
     @await RenderSectionAsync("Scripts", required: false)
-
-
-
 </body>
 </html>
+

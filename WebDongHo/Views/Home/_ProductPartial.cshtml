@@ -1,55 +1,152 @@
 ﻿@model WebDongHo.ViewModels.HomeViewModel
 
-<div class="panel panel-info panel-prod"> 
-    <div class="panel-heading panel-heading-prod"><i class="fa fa-spinner fa
-spin"></i> @Model.SmaWCateProds.NameCat</div> 
-    <div class="panel-body"> 
-        <div class="row"> 
-            @foreach (var item in Model.SmaWatchProds) 
-            { 
-                <div class="col-md-4"> 
-                    <div class="thumbnail"> 
-                        <img src="~/images/products/@item.Img1" class="img-rounded" 
-alt="@item.NamePro"> 
-                        <div class="caption"> 
-                            <h4>@item.NamePro</h4> 
-                            <p>Giá: @string.Format("{0:N0}", item.Price) VNĐ</p> 
-                            <p><a href="san-pham/@item.Link-@item.IdPro" class="btn 
-btn-info" role="button"><i class="fa fa-rocket"></i> Chi tiết</a></p> 
-                        </div> 
-                    </div> 
-                </div> 
-            } 
-        </div> 
-    </div> 
-    <div class="panel-footer"> 
-        <p class="more-prod"><a href="@Model.SmaWCateProds.Link-@Model.SmaWCateProds.IdCat">Xem thêm sản phẩm...</a></p> 
-    </div> 
-</div> 
- 
-<div class="panel panel-danger panel-prod"> 
-    <div class="panel-heading panel-heading-prod"><i class="fa fa-spinner fa
-spin"></i> @Model.MecWCateProds.NameCat</div> 
-    <div class="panel-body"> 
-        <div class="row"> 
-            @foreach (var item in Model.MecWatchProds) 
-            { 
-                <div class="col-md-4"> 
-                    <div class="thumbnail"> 
-                        <img src="~/images/products/@item.Img1" class="img-rounded" 
-alt="@item.NamePro"> 
-                        <div class="caption"> 
-                            <h4>@item.NamePro</h4> 
-                            <p>Giá: @string.Format("{0:N0}", item.Price) VNĐ</p> 
- <p><a href="san-pham/@item.Link-@item.IdPro" class="btn 
-btn-info" role="button"><i class="fa fa-rocket"></i> Chi tiết</a></p> 
-                        </div> 
-                    </div> 
-                </div> 
-            } 
-        </div> 
-    </div> 
-    <div class="panel-footer"> 
-        <p class="more-prod"><a href="@Model.MecWCateProds.Link-@Model.MecWCateProds.IdCat">Xem thêm sản phẩm...</a></p> 
-    </div> 
+<div class="product-view">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+                <!-- Phần danh sách CatProds -->
+                <h3>Đồng hồ thông minh</h3>
+                <p class="more-prod">
+                    <a href="@Model.SmaWCateProds.Link-@Model.SmaWCateProds.IdCat">Xem thêm sản phẩm...</a>
+                </p>
+                <div id="catCarousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        @for (int i = 0; i < Model.SmaWatchProds.Count; i += 3)
+                        {
+                            <div class="carousel-item @(i == 0 ? "active" : "")">
+                                <div class="row">
+                                    @for (int j = i; j < i + 4 && j < Model.SmaWatchProds.Count; j++)
+                                    {
+                                        var item = Model.SmaWatchProds[j];
+                                        <div class="col-lg-4">
+                                            <div class="product-item">
+                                                <div class="product-image">
+                                                    <a href="san-pham/@item.Link-@item.IdPro">
+                                                        <img src="~/images/products/@item.Img1" alt="@item.NamePro">
+                                                    </a>
+                                                    <div class="product-action">
+                                                        <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                                        <a href="#"><i class="fa fa-heart"></i></a>
+                                                        <a href="#"><i class="fa fa-search"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="product-content">
+                                                    <div class="title">
+                                                        <a href="san-pham/@item.Link-@item.IdPro">@item.NamePro</a>
+                                                    </div>
+                                                    <div class="price">@string.Format("{0:N0}", item.Price) VNĐ</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                    <!-- Điều khiển Carousel -->
+                    <a class="carousel-control-prev btn-black" href="#catCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next btn-black" href="#catCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+
+                <!-- Phần danh sách DogProds -->
+                <h3>Đồng hồ cơ học</h3>
+                <p class="more-prod">
+                    <a href="@Model.MecWCateProds.Link-@Model.MecWCateProds.IdCat">Xem thêm sản phẩm...</a>
+                </p>
+                <div id="dogCarousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        @for (int i = 0; i < Model.MecWatchProds.Count; i += 3)
+                        {
+                            <div class="carousel-item @(i == 0 ? "active" : "")">
+                                <div class="row">
+                                    @for (int j = i; j < i + 4 && j < Model.MecWatchProds.Count; j++)
+                                    {
+                                        var item = Model.MecWatchProds[j];
+                                        <div class="col-lg-4">
+                                            <div class="product-item">
+                                                <div class="product-image">
+                                                    <a href="san-pham/@item.Link-@item.IdPro">
+                                                        <img src="~/images/products/@item.Img1" alt="@item.NamePro">
+                                                    </a>
+                                                    <div class="product-action">
+                                                        <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                                        <a href="#"><i class="fa fa-heart"></i></a>
+                                                        <a href="#"><i class="fa fa-search"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="product-content">
+                                                    <div class="title">
+                                                        <a href="san-pham/@item.Link-@item.IdPro">@item.NamePro</a>
+                                                    </div>
+                                                    <div class="price">@string.Format("{0:N0}", item.Price) VNĐ</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                    <!-- Điều khiển Carousel -->
+                    <a class="carousel-control-prev btn-black" href="#dogCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next btn-black" href="#dogCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-md-3">
+                <div class="sidebar-widget category">
+                    <h2 class="title">Danh mục</h2>
+                    <ul>
+                        <li><a href="#">Đồng hồ cơ</a><span>(83)</span></li>
+                        <li><a href="#">Đồng hồ điện tử</a><span>(198)</span></li>
+                        <li><a href="#">Đồng hồ nữ</a><span>(95)</span></li>
+                        <li><a href="#">Phụ kiện</a><span>(48)</span></li>
+                    </ul>
+                </div>
+
+                <div class="sidebar-widget image">
+                    <h2 class="title">Sản phẩm nổi bật</h2>
+                    <a href="#">
+                        <img src="~/images/category-1.jpg" alt="Featured Product">
+                    </a>
+                </div>
+
+                <div class="sidebar-widget brands">
+                    <h2 class="title">Thương hiệu</h2>
+                    <ul>
+                        <li><a href="#">Rolex</a><span>(45)</span></li>
+                        <li><a href="#">Casio</a><span>(34)</span></li>
+                        <li><a href="#">Omega</a><span>(67)</span></li>
+                        <li><a href="#">Tissot</a><span>(74)</span></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+@section scripts {
+    <script>
+        function changeImage(img) {
+            var mainImage = document.getElementById('mainImage');
+            var tempSrc = mainImage.src;
+            mainImage.src = img.src;
+            img.src = tempSrc;
+        }
+    </script>
+}
