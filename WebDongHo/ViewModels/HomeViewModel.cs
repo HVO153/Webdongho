@@ -9,7 +9,9 @@ namespace WebDongHo.ViewModels
         public List<Slider> Sliders { get; set; }
         public List<Product> MecWatchProds { get; set; }
         public List<Product> SmaWatchProds { get; set; }
+        public List<Product> PinWatchProds { get; set; }
         public Catology MecWCateProds { get; set; }
         public Catology SmaWCateProds { get; set; }
+        public Catology PinWCateProds { get; set; }
     }
 }
