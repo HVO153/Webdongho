@@ -44,27 +44,18 @@ public partial class DonghodbContext : DbContext
             entity.ToTable("BLOG");
 
             entity.Property(e => e.IdBlog).HasColumnName("ID_BLOG");
-            entity.Property(e => e.Datebegin)
-                .HasColumnType("smalldatetime")
-                .HasColumnName("DATEBEGIN");
+            
             entity.Property(e => e.Description)
-                .HasMaxLength(255)
+                .HasMaxLength(500)
                 .HasColumnName("DESCRIPTION");
-            entity.Property(e => e.Detail)
-                .HasColumnType("ntext")
-                .HasColumnName("DETAIL");
             entity.Property(e => e.Hide).HasColumnName("HIDE");
             entity.Property(e => e.IdUsers).HasColumnName("ID_USERS");
-            entity.Property(e => e.Img)
-                .HasMaxLength(255)
-                .IsUnicode(false)
-                .HasColumnName("IMG");
             entity.Property(e => e.Link)
                 .HasMaxLength(255)
                 .HasColumnName("LINK");
             entity.Property(e => e.Order).HasColumnName("ORDER");
             entity.Property(e => e.Title)
-                .HasMaxLength(50)
+                .HasMaxLength(150)
                 .HasColumnName("TITLE");
 
             entity.HasOne(d => d.IdUsersNavigation).WithMany(p => p.Blogs)
