@@ -13,5 +13,6 @@ namespace WebDongHo.ViewModels
         public Catology MecWCateProds { get; set; }
         public Catology SmaWCateProds { get; set; }
         public Catology PinWCateProds { get; set; }
+
     }
 }

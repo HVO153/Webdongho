@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 using WebDongHo.Models;
@@ -15,6 +16,10 @@ namespace WebDongHo.Controllers
             _context = context;
         }
 
+
+
+
+        [Authorize(Roles ="0")]
         public async Task<IActionResult> Index()
         {
             var menus = await _context.Menus.Where(m => m.Hide == 0).OrderBy(m => m.Order).ToListAsync();
@@ -33,6 +38,11 @@ namespace WebDongHo.Controllers
             };
             return View(cartViewModel);
         }
+
+
+
+
+
         public IActionResult AddItem(int ProductId, int Quantity)
         {
             var product = _context.Products.Find(ProductId);
@@ -73,6 +83,9 @@ namespace WebDongHo.Controllers
 
 
 
+
+
+
         public IActionResult Update(string cartModel)
         {
             var jsonCart = JsonConvert.DeserializeObject<List<CartItem>>(cartModel);
@@ -93,14 +106,6 @@ namespace WebDongHo.Controllers
                 status = true
             });
         }
-
-
-
-
-
-
-
-
 
 
 
@@ -140,6 +145,7 @@ namespace WebDongHo.Controllers
 
 
         [HttpGet]
+        [Authorize(Roles ="0")]
         public async Task<IActionResult> Payment(string name)
         {
             var menus = await _context.Menus.Where(m => m.Hide == 0).OrderBy(m => m.Order).ToListAsync();
