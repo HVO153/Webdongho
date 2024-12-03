@@ -25,7 +25,9 @@ namespace WebDongHo.Controllers
             var mecw_cate_prods = await _context.Catologies.Where(m => m.IdCat ==1).FirstOrDefaultAsync();
             var pinw_prods = await _context.Products.Where(m => m.Hide == 0 && m.IdCat == 3).OrderBy(m => m.Order).Take(3).ToListAsync();
             var pinw_cate_prods = await _context.Catologies.Where(m => m.IdCat == 3).FirstOrDefaultAsync();
-            
+            var lightew_prods = await _context.Products.Where(m => m.Hide == 0 && m.IdCat == 4).OrderBy(m => m.Order).Take(3).ToListAsync();
+            var lightew_cate_prods = await _context.Catologies.Where(m => m.IdCat == 4).FirstOrDefaultAsync();
+
             var viewModel = new HomeViewModel
             {
                 Menus = menus,
@@ -34,9 +36,11 @@ namespace WebDongHo.Controllers
                 SmaWatchProds = smaw_prods,
                 MecWatchProds = mecw_prods,
                 PinWatchProds = pinw_prods,
+                LighteWatchProds = lightew_prods,
                 SmaWCateProds = smaw_cate_prods,
                 MecWCateProds = mecw_cate_prods,
                 PinWCateProds = pinw_cate_prods,
+                LighteWCateProds = lightew_cate_prods,
             };
 
             return View(viewModel);

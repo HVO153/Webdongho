@@ -158,6 +158,58 @@
 
 
 
+                <h3>Đồng hồ năng lượng quang</h3>
+                <p class="more-prod">
+                    <a href="@Model.LighteWCateProds.Link-@Model.LighteWCateProds.IdCat">Xem thêm sản phẩm...</a>
+                </p>
+                <div id="dogCarousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner">
+                        @for (int i = 0; i < Model.LighteWatchProds.Count; i += 3)
+                        {
+                            <div class="carousel-item @(i == 0 ? "active" : "")">
+                                <div class="row">
+                                    @for (int j = i; j < i + 4 && j < Model.LighteWatchProds.Count; j++)
+                                    {
+                                        var item = Model.LighteWatchProds[j];
+                                        <div class="col-lg-4">
+                                            <div class="product-item">
+                                                <div class="product-image">
+                                                    <a href="san-pham/@item.Link-@item.IdPro">
+                                                        <img src="~/images/products/@item.Img1" alt="@item.NamePro">
+                                                    </a>
+                                                    <div class="product-action">
+                                                        <a href="#"><i class="fa fa-cart-plus"></i></a>
+                                                        <a href="#"><i class="fa fa-heart"></i></a>
+                                                        <a href="#"><i class="fa fa-search"></i></a>
+                                                    </div>
+                                                </div>
+                                                <div class="product-content">
+                                                    <div class="title">
+                                                        <a href="san-pham/@item.Link-@item.IdPro">@item.NamePro</a>
+                                                    </div>
+                                                    <div class="price">@string.Format("{0:N0}", item.Price) VNĐ</div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                    <!-- Điều khiển Carousel -->
+                    <a class="carousel-control-prev btn-black" href="#dogCarousel" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next btn-black" href="#dogCarousel" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+
+
+
 
 
 
