@@ -1,0 +1,52 @@
+﻿@model WebDongHo.ViewModels.CartViewModel
+
+<div class="panel panel-primary">
+    <div class="panel-heading">Quản Lý Đơn Hàng</div>
+    <div class="panel-body">
+        @if (Model.Carts.Any())
+        {
+            <table class="table table-bordered">
+                <thead>
+                    <tr style="text-align:center;font-weight:bold">
+                        <td>Mã Giỏ Hàng</td>
+                        <td>Ngày đặt</td>
+                        <td>Tên Người Dùng</td>
+                        <td>Địa chỉ</td>
+                        <td>Điện thoại</td>
+                        <td>Sản Phẩm</td>
+                        <td>Số Lượng</td>
+                        <td>Đơn Giá</td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var cart in Model.Carts)
+                    {
+                        @foreach (var item in cart.CartDetails)
+                        {
+                            <tr>
+                                <td style="text-align:center">@cart.IdCart</td>
+                                <td style="text-align:center">@cart.Datebegin?.ToString("dd/MM/yyyy")</td>
+                                <td>@cart.IdUsersNavigation?.Username</td>
+                                <td>@cart.IdUsersNavigation?.Address</td>
+                                <td>@cart.IdUsersNavigation?.Phone</td>
+
+                                <td>@item.IdProNavigation.NamePro</td>
+                                <td style="text-align:center">@item.SoldNum</td>
+                                <td style="text-align:center">
+                                    @String.Format(System.Globalization.CultureInfo.GetCultureInfo("vi-VN"),
+                                             "{0:c}", item.IdProNavigation.Price.GetValueOrDefault())
+                                </td>
+                            </tr>
+                        }
+                    }
+                </tbody>
+            </table>
+        }
+        else
+        {
+            <div style="margin-top:10px;margin-bottom:10px;margin-left:auto;margin-right:auto">
+                <span class="alert alert-danger">Chưa có đơn hàng nào.</span>
+            </div>
+        }
+    </div>
+</div>

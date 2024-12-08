@@ -9,5 +9,12 @@ namespace WebDongHo.ViewModels
         public List<Menu> Menus { get; set; }
         public List<Blog> Blogs { get; set; }
         public List<CartItem> CartItems { get; set; }
+        public List<Cart> Carts { get; set; }
+
     }
+
+
+
+
+
 }

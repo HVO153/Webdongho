@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
+using System.Security.Claims;
 using WebDongHo.Models;
 using WebDongHo.ViewModels;
 namespace WebDongHo.Controllers
@@ -222,6 +223,37 @@ namespace WebDongHo.Controllers
         }
 
 
+
+
+
+
+
+
+
+        public async Task<IActionResult> ManageOrders()
+        {
+            // Lấy tất cả các giỏ hàng và các chi tiết của giỏ hàng
+            var carts = await _context.Carts
+                .Include(c => c.CartDetails)  // Lấy các CartDetails liên quan
+                .ThenInclude(cd => cd.IdProNavigation)  // Lấy thông tin sản phẩm liên quan
+                .Include(c => c.IdUsersNavigation) // Lấy thông tin người dùng
+                .Where(c => c.Hide == 0) // Lọc giỏ hàng còn hoạt động
+                .ToListAsync();
+
+            // Lấy dữ liệu cho Menus và Blogs (có thể là các bảng riêng biệt trong DB)
+            var menus = await _context.Menus.ToListAsync();  // Ví dụ lấy tất cả các menu
+            var blogs = await _context.Blogs.ToListAsync();  // Ví dụ lấy tất cả các bài viết blog
+
+            // Khởi tạo CartViewModel và gán dữ liệu
+            var cartViewModel = new CartViewModel
+            {
+                Carts = carts,
+                Menus = menus,
+                Blogs = blogs
+            };
+
+            return View(cartViewModel);
+        }
 
 
 
