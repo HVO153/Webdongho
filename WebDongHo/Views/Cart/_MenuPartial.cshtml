@@ -39,7 +39,12 @@
                             @username
                         </a>
                     </li>
-                    <li><a href="dang-xuat"><span class="glyphicon glyphicon-log-out"></span></a></li>
+                    <li>
+                        <a href="@Url.Action("Logout", "User")">
+                            <span class="glyphicon glyphicon-log-out"></span>
+                        </a>
+
+                    </li>
                 }
                 else
                 {
